@@ -4,3 +4,4 @@ pydantic==2.6.1
 
 transformers==4.38.2
 torch==2.2.1
+regex==2024.1.1
