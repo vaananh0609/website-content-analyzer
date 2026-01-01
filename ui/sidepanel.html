@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website Content Analyzer</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="brand">
+          <img src="../icons/icon16.png" alt="" />
+          <div class="title">
+            <h1>Website Content Analyzer</h1>
+            <div id="status" class="status" aria-live="polite">Status: Ready</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="primary">
+        <button id="analyze" class="btn">Analyze This Page</button>
+        <span id="spinner" class="spinner" data-visible="false" aria-hidden="true"></span>
+      </div>
+
+      <div id="error" class="error" data-visible="false"></div>
+
+      <div class="tabs" role="tablist" aria-label="Analysis result">
+        <button class="tab" role="tab" id="tab-summary" aria-controls="panel-summary" aria-selected="true" data-tab="summary">Summary</button>
+        <button class="tab" role="tab" id="tab-keywords" aria-controls="panel-keywords" aria-selected="false" data-tab="keywords">Keywords</button>
+        <button class="tab" role="tab" id="tab-sentiment" aria-controls="panel-sentiment" aria-selected="false" data-tab="sentiment">Sentiment</button>
+      </div>
+
+      <div id="panel-summary" class="panel" role="tabpanel" aria-labelledby="tab-summary">
+        <h3>Summary</h3>
+        <div id="summary" class="muted">Run analysis to see a 3–5 sentence summary.</div>
+      </div>
+
+      <div id="panel-keywords" class="panel" role="tabpanel" aria-labelledby="tab-keywords" hidden>
+        <h3>Keywords</h3>
+        <div id="keywords" class="muted">—</div>
+      </div>
+
+      <div id="panel-sentiment" class="panel" role="tabpanel" aria-labelledby="tab-sentiment" hidden>
+        <h3>Sentiment</h3>
+        <div id="sentiment" class="pill neutral">Neutral</div>
+      </div>
+
+      <div class="kv" aria-label="Metadata">
+        <div class="row"><div class="k">Title</div><div id="meta-title" class="v">—</div></div>
+        <div class="row"><div class="k">URL</div><div id="meta-url" class="v">—</div></div>
+        <div class="row"><div class="k">Words</div><div id="meta-words" class="v">—</div></div>
+      </div>
+
+      <details>
+        <summary>Advanced</summary>
+        <div class="form">
+          <label class="label">
+            Summary length
+            <select id="summaryLength">
+              <option value="short" selected>Short (3 sentences)</option>
+              <option value="detailed">Detailed (5 sentences)</option>
+            </select>
+          </label>
+
+          <label class="label">
+            Language
+            <select id="language">
+              <option value="auto" selected>Auto</option>
+              <option value="en">English</option>
+              <option value="vi">Vietnamese</option>
+            </select>
+          </label>
+
+          <label class="checkbox">
+            <input id="includeComments" type="checkbox" />
+            Include comments (best effort)
+          </label>
+        </div>
+      </details>
+    </div>
+
+    <script src="sidepanel.js"></script>
+  </body>
+</html>
